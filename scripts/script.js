@@ -12,6 +12,21 @@ console.log("Hello, world!")
 // TRANSLATE number into corresponding weapon for computer (1=Rock; 2=Paper; 3=Scissors)
 
 // DISPLAY message "Choose your weapon: Rock; Paper; Scissors!"
+const message = "Choose your weapon: Rock, Paper or Scissors!";
+let humanChoice = window.prompt(message)
+
+// IL: need to adapt this to remove case sensitivity (make all lower case).
+if(humanChoice=="Rock"|humanChoice=="rock"){
+console.log("Human chooses Rock!")}
+else if (humanChoice=="Paper"){ 
+    console.log("Human chooses Paper!")
+}
+else if (humanChoice==("Scissors"|"scissors")){
+    console.log("Human chooses Scissors!")
+}
+else {
+    console.log("I'm sorry, that's not an option. Please try again...")
+}
 
 // GET user input as string
 

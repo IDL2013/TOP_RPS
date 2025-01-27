@@ -7,13 +7,56 @@ console.log("Hello, world!")
 // CREATE variable for number of rounds played
 // CREATE variable for human rounds won
 
-// SELECT random number from 0-1 and multiply by 3, before rounding up
+// SELECT random number from 0-1 and multiply by 3, before rounding to the nearest integer
+const randNum = function (){
+    let num = Math.random()*100;
+    num = Math.round(num);
+    return num
+}
+
+//let log = 0, scissors = 0, rocks = 0, paper = 0, extra=0
+//for(let i=1; i<1000; i++){
+    random = randNum(); 
+    log = log + random;
+     if(random <= 33.333333){
+        rocks++;
+     }
+     else if ((random > 33.33333) && (random <= 66.666666)){
+        paper++;
+     }
+     else if (random => 100){
+        scissors++;
+     }
+     else {extra++};
+//    }
+    
+//console.log("Scissors: " + scissors);
+//console.log("Rocks: "+ rocks);
+//console.log("Paper: " + paper); 
+//console.log("Extra: " + extra);
 
 // TRANSLATE number into corresponding weapon for computer (1=Rock; 2=Paper; 3=Scissors)
+let getComputerChoice = function(){
+    let toolNum = randNum();
+    let Choice
+    if (toolNum == 1){
+        Choice = "Rock";
+    }
+    else if (toolNum == 2){
+        Choice = "Paper";
+    }
+    else {
+        Choice = "Scissors";
+    }
+    return Choice
+}
+
+compChoice = getComputerChoice();
+console.log("Computer chooses: " + compChoice);
 
 // DISPLAY message "Choose your weapon: Rock; Paper; Scissors!"
 const message = "Choose your weapon: Rock, Paper or Scissors!";
-let humanChoice = window.prompt(message)
+let humanChoice = prompt(message)
 
 // IL: need to adapt this to remove case sensitivity (make all lower case).
 if(humanChoice=="Rock"|humanChoice=="rock"){

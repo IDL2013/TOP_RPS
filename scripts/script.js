@@ -1,86 +1,101 @@
 
-// PRINT script linkage with "Hello World!"
-console.log("Hello, world!")
-
 // CREATE variable for computer choice
 // CREATE variable for human choice
 // CREATE variable for number of rounds played
 // CREATE variable for human rounds won
 
-// SELECT random number from 0-1 and multiply by 3, before rounding to the nearest integer
-const randNum = function (){
-    let num = Math.random()*100;
-    num = Math.round(num);
-    return num
-}
-
-//let log = 0, scissors = 0, rocks = 0, paper = 0, extra=0
-//for(let i=1; i<1000; i++){
-    random = randNum(); 
-    log = log + random;
-     if(random <= 33.333333){
-        rocks++;
-     }
-     else if ((random > 33.33333) && (random <= 66.666666)){
-        paper++;
-     }
-     else if (random <= 100){
-        scissors++;
-     }
-     else {extra++};
-//    }
-    
-//console.log("Scissors: " + scissors);
-//console.log("Rocks: "+ rocks);
-//console.log("Paper: " + paper); 
-//console.log("Extra: " + extra);
-
 // TRANSLATE number into corresponding weapon for computer (1=Rock; 2=Paper; 3=Scissors)
 let getComputerChoice = function(){
-    let toolNum = randNum();
+    let toolNum = (Math.random()*100)+1;
+    let Choice;
     if (toolNum <= 33.33333){
-        let Choice = "Rock";
+        Choice = "Rock";
     }
     else if ((toolNum > 33.333333) && (toolNum <= 66.666666)){
-        let Choice = "Paper";
+        Choice = "Paper";
     }
-    else if (toolnum <= 100){
-        let Choice = "Scissors";
+    else if (toolNum <= 100){
+        Choice = "Scissors";
     }
     return Choice
 }
 
-compChoice = getComputerChoice();
-console.log("Computer chooses: " + compChoice);
-
 // DISPLAY message "Choose your weapon: Rock; Paper; Scissors!"
+const getHumanChoice = function(){
 const message = "Choose your weapon: Rock, Paper or Scissors!";
-let humanChoice = prompt(message)
-
-// IL: need to adapt this to remove case sensitivity (make all lower case).
-if(humanChoice=="Rock"|humanChoice=="rock"){
+let Choice = prompt(message);
+if(Choice=="Rock"|Choice=="rock"){
 console.log("Human chooses Rock!")}
-else if (humanChoice=="Paper"){ 
+else if (Choice=="Paper"|Choice=="paper"){ 
     console.log("Human chooses Paper!")
 }
-else if (humanChoice==("Scissors"|"scissors")){
+else if (Choice=="Scissors"|Choice=="scissors"){
     console.log("Human chooses Scissors!")
 }
 else {
     console.log("I'm sorry, that's not an option. Please try again...")
 }
+return Choice;
+}
 
-// GET user input as string
+let humanChoice = getHumanChoice();
+
+// DECLARE players score variables
+let humanScore = 0;
+let computerScore = 0;
 
 // COMPARE computer and user selections: rock beats scissors; scissor beats paper; paper beats rock
 
-// PRINT statement if human wins: "Human wins! 1:0 to humans!"
+const playRound = function(humanChoice,computerChoice){
+    let outcome;
+        if (humanChoice=="rock") {
+            if (computerChoice=="Rock"){
+                console.log("Draw! Try again."); 
+            }
+            else if (computerChoice=="Paper") {
+                computerScore++;
+                console.log("Paper beats rock. You lose!");
+            }
+            else if (computerChoice=="Scissors") {
+                humanScore++;
+                console.log("Rock beats scissors. You win!");
+            }
+        }
+        else if (humanChoice == "paper"){
+            if (computerChoice == "Rock"){
+                humanScore++;
+                console.log("Paper beats rock. You win!");
+            }
+            else if (computerChoice == "Scissors"){
+                computerScore++;
+                console.log("Scissors beat paper. You lose!");
+            }
+            else if (computerChoice == "Paper"){
+                console.log("Draw! Try again.");
+            }
+        };
+        if (humanChoice == "scissors") {
+            if (computerChoice == "Rock"){
+                computerScore++;
+                console.log("Rock beats scissors. You lose!");
+            }
+            else if (computerChoice == "Scissors"){
+                console.log("Draw. Try again!");
+            } else if (computerChoice == "Paper"){
+                humanScore++;
+                console.log("Scissors beat paper. You win!");
+            }
+        }
+    };
 
-// PRINT statement if computer wins: "The computer wins this round! Humans are losing 0:1!"
+// PRINT statement on outcome of round
+compChoice = getComputerChoice();
+console.log("Computer chooses: " + compChoice);
+playRound(humanChoice,compChoice);
+console.log("Human score: " + humanScore);
+console.log("Computer score: "+ computerScore);
 
-// INCREASE round number by 1
-
-// LOOP through the gams until row number = 5
+// LOOP through the games until row number = 5
 
 // IF row number = 5 and human_rounds = 5 - comp_rounds, display game conclusion statement
 

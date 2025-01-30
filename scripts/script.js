@@ -24,7 +24,7 @@ const randNum = function (){
      else if ((random > 33.33333) && (random <= 66.666666)){
         paper++;
      }
-     else if (random => 100){
+     else if (random <= 100){
         scissors++;
      }
      else {extra++};
@@ -38,15 +38,14 @@ const randNum = function (){
 // TRANSLATE number into corresponding weapon for computer (1=Rock; 2=Paper; 3=Scissors)
 let getComputerChoice = function(){
     let toolNum = randNum();
-    let Choice
-    if (toolNum == 1){
-        Choice = "Rock";
+    if (toolNum <= 33.33333){
+        let Choice = "Rock";
     }
-    else if (toolNum == 2){
-        Choice = "Paper";
+    else if ((toolNum > 33.333333) && (toolNum <= 66.666666)){
+        let Choice = "Paper";
     }
-    else {
-        Choice = "Scissors";
+    else if (toolnum <= 100){
+        let Choice = "Scissors";
     }
     return Choice
 }

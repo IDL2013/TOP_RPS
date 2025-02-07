@@ -23,7 +23,7 @@ let getComputerChoice = function(){
 // DISPLAY message "Choose your weapon: Rock; Paper; Scissors!"
 const getHumanChoice = function(){
 const message = "Choose your weapon: Rock, Paper or Scissors!";
-let Choice = prompt(message);
+//let Choice = prompt(message);
 if(Choice=="Rock"|Choice=="rock"){
 console.log("You chose Rock!")}
 else if (Choice=="Paper"|Choice=="paper"){ 
@@ -38,7 +38,7 @@ else {
 return Choice;
 }
 
-let humanChoice = getHumanChoice();
+//let humanChoice = getHumanChoice();
 
 // DECLARE players score variables
 let humanScore = 0;
@@ -91,6 +91,8 @@ const playRound = function(humanChoice,computerChoice){
         }
     };
 
+
+
 // PRINT statement on outcome of round
 compChoice = getComputerChoice();
 console.log("Computer chooses: " + compChoice);
@@ -98,28 +100,3 @@ playRound(humanChoice,compChoice);
 console.log("Human score: " + humanScore);
 console.log("Computer score: "+ computerScore);
 
-// LOOP through the games until row number = 5
-let playRPS = function(){
-
-// DECLARE players score variables
-const nRounds = 5;
-
-for (let i = 1; i < nRounds; i++) {
-    console.log("Round " + i);
-    let humanChoice = getHumanChoice();
-    compChoice = getComputerChoice();
-    console.log("Computer chooses: " + compChoice);
-    playRound(humanChoice,compChoice);
-    console.log("Human score: " + humanScore);
-    console.log("Computer score: "+ computerScore);
-  }
-
-if(humanScore>computerScore) {
-    console.log("You win the game!")}
-else if(humanScore<computerScore){
-    console.log("You lose the game!")}
-}
-
-playRPS();
-
-// IF row number = 5 and human_rounds = 5 - comp_rounds, display game conclusion statement

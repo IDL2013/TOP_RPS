@@ -43,6 +43,37 @@ return Choice;
 // DECLARE players score variables
 let humanScore = 0;
 let computerScore = 0;
+let humanChoice;
+
+// LISTEN for click events on each button
+const buttons = human.querySelectorAll("button");
+buttons.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener("click", () => {
+        let compChoice = getComputerChoice();
+        switch(button.id){
+        case "rock": 
+            humanChoice = "rock";
+            playRound(humanChoice,compChoice);
+            break;
+        case "scissors":
+            humanChoice = "scissors";
+            playRound(humanChoice,compChoice);
+            break;
+        case "paper":
+            humanChoice = "paper";
+            playRound(humanChoice,compChoice);
+            break;
+      }
+
+let resultHuman = document.getElementById('scoreHum');
+resultHuman.innerText = humanScore; 
+
+let resultComp = document.getElementById('scoreComp');
+resultComp.innerText = computerScore;
+    });
+  });
+
 
 // COMPARE computer and user selections: rock beats scissors; scissor beats paper; paper beats rock
 
@@ -94,9 +125,9 @@ const playRound = function(humanChoice,computerChoice){
 
 
 // PRINT statement on outcome of round
-compChoice = getComputerChoice();
-console.log("Computer chooses: " + compChoice);
-playRound(humanChoice,compChoice);
-console.log("Human score: " + humanScore);
-console.log("Computer score: "+ computerScore);
+//compChoice = getComputerChoice();
+//console.log("Computer chooses: " + compChoice);
+//playRound(humanChoice,compChoice);
+//console.log("Human score: " + humanScore);
+//console.log("Computer score: "+ computerScore);
 

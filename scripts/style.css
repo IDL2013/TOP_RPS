@@ -1,3 +1,84 @@
+
+
 body {
-    background: lightskyblue;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    /*apply a linear gradient of navy to light sky blue to the whole page*/
+    background: linear-gradient(navy, white);
+    height: 100vh;
+    
 }
+
+#results {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    height: 150px;
+    /*select a font color that is close to white but slightly glows */
+    color: #f0f0f0;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+
+}
+
+
+
+#winner {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    width: 200px;
+
+}
+
+p {
+    justify-self: center;
+    align-self: center;
+}
+
+
+#human {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.choice { 
+    justify-self: center;
+    align-self: center;
+    color: #f0f0f0;
+    font-size: 1.5em;
+}
+
+button {
+    width: 150px;
+    margin: auto;
+}
+
+#roundOutcome {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-self: center;
+    align-content: center;
+    width: 200px;
+    margin: auto;
+    color: darkblue;
+    font-size: 1.5em;
+}
+
+#roundResult {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    width: 200px;
+    margin: auto;
+    color: darkblue;
+    font-size: 1em;
+}
+
+

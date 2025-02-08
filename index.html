@@ -7,19 +7,30 @@
     <link rel="stylesheet" href="./scripts/style.css">
 </head>
 <body>
-    <div id="human">
-    <h2 class="choice">Choose you weapon:</h2>
-    <button id="rock">Rock</button>
-    <button id="scissors">Scissors</button>
-    <button id="paper">Paper</button>
-    </div>
     <div id="results">
+        <div id="playerResult">
         <h3 class="title">Player score:</h3>
         <p id="scoreHum"></p>
+        </div>
+        <div id="winner">
+        <p id="title"></p>
+        <button id="reset">New Game</button>  
+        </div>
+        <div id="compResult">
         <h3 class="title">Computer score:</h3>
         <p id="scoreComp"></p>
-        <button id="reset">Reset</button>
     </div>
+        
+    </div>
+    <div id="human">
+    <h2 class="choice">Choose your weapon!!</h2>
+    <button id="rock">Rock</button><br>
+    <button id="scissors">Scissors</button><br>
+    <button id="paper">Paper</button><br>
+    </div>
+    <div id="roundOutcome">
+        <p id="roundResult"></p>
+    
 </body>
 <script src="scripts/script.js"></script>
 </html>

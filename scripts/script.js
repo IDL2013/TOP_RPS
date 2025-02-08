@@ -44,9 +44,10 @@ return Choice;
 let humanScore = 0;
 let computerScore = 0;
 let humanChoice;
+let nRound = 0;
 
 // LISTEN for click events on each button
-const buttons = human.querySelectorAll("button");
+const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     // and for each one we add a 'click' listener
     button.addEventListener("click", () => {
@@ -64,6 +65,9 @@ buttons.forEach((button) => {
             humanChoice = "paper";
             playRound(humanChoice,compChoice);
             break;
+        case "reset":
+            reset();
+            break
       }
 
 let resultHuman = document.getElementById('scoreHum');
@@ -71,63 +75,92 @@ resultHuman.innerText = humanScore;
 
 let resultComp = document.getElementById('scoreComp');
 resultComp.innerText = computerScore;
+
+let roundNum = document.getElementById('roundOutcome');
+roundNum.innerText = `Round ${nRound}. Player choice: ${humanChoice}. Computer choice: ${compChoice}.`;
+
     });
   });
 
+buttons.forEach((button) => {
+button.addEventListener("click", () => {
+    if(nRound >= 5){
+    if(humanScore > computerScore){
+        let alertScore = document.getElementById('title')
+        alertScore.innerText = "You win!";
+    }
+    if(computerScore > humanScore){
+        let alertScore = document.getElementById('title')
+        alertScore.innerText = "You lose!";
+    }
+}});
+});
 
 // COMPARE computer and user selections: rock beats scissors; scissor beats paper; paper beats rock
 
 const playRound = function(humanChoice,computerChoice){
     let outcome;
+    nRound++;
         if (humanChoice==="rock") {
             if (computerChoice==="Rock"){
-                console.log("Draw!")
                 return; 
             }
             else if (computerChoice==="Paper") {
-                console.log("You lose!")
                 return computerScore++;
             }
             else if (computerChoice==="Scissors") {
-                console.log("You win!");
                 return humanScore++;
             }
         }
         else if (humanChoice === "paper"){
             if (computerChoice === "Rock"){
-                console.log("You win!");
                 return humanScore++;
             }
             else if (computerChoice === "Scissors"){
-                console.log("You lose!")
                 return computerScore++;
             }
             else if (computerChoice === "Paper"){
-                console.log("Draw!")
                 return;
             }
         };
         if (humanChoice === "scissors") {
             if (computerChoice === "Rock"){
-                console.log("You lose!")
                 return computerScore++;
             }
             else if (computerChoice === "Scissors"){
-                console.log("Draw!")
                 return;
             } else if (computerChoice === "Paper"){
-                console.log("You win!");
                 return humanScore++;
             }
         }
+
     };
 
+// event listener for humanScore or computerScore reaching 5
+// if humanScore = 5, display "You win!"
+// if computerScore = 5, display "You lose!"
+
+// DISPLAY message "You win!" or "You lose!" when score reaches 5
 
 
-// PRINT statement on outcome of round
-//compChoice = getComputerChoice();
-//console.log("Computer chooses: " + compChoice);
-//playRound(humanChoice,compChoice);
-//console.log("Human score: " + humanScore);
-//console.log("Computer score: "+ computerScore);
+// RESET scores to 0
+let reset = function(){
+    humanScore = 0;
+    computerScore = 0;
+    nRound = 0;
+
+    let resultHuman = document.getElementById('scoreHum');
+    resultHuman.innerText = "0";
+
+    let resultComp = document.getElementById('scoreComp');
+    resultComp.innerText = "0";
+
+    let alertScore = document.getElementById('title')
+        alertScore.innerText = "";
+
+    return;
+}
+
+
+
 
